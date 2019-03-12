@@ -1,0 +1,116 @@
+﻿@model UserRegistrationPortal.Models.UserRegisterViewModels
+@using UserRegistrationPortal.Models
+@using UserRegistrationPortal.CustomHelpers
+@{
+    ViewBag.Title = "Register";
+    IDictionary<string, string> links = new Dictionary<string, string>();
+    links.Add("Home", "Home/");
+    links.Add("Login", "Account/Login");
+    ViewBag.Links = links;
+}
+@Styles.Render("~/Bundles/RegisterStyleBundle")
+<div class="form-container">
+    <div class="form-wrapper">
+        <form method="POST" action="@Url.Action("Register", "Account")" id="registrationForm" enctype="multipart/form-data">
+            <div class="flex-form-group">
+                <h2>Register</h2>
+            </div>
+            <div class="flex-form-group">
+                <div class="flex-form-label">
+                    <label for="firstName">First Name<sup>*</sup></label>
+                </div>
+                <div class="flex-form-control">
+                    <input type="text" name="firstName" id="firstName" class="input-control" placeholder="First Name" />
+                </div>
+            </div>
+            <div class="flex-form-group">
+                <div class="flex-form-label">
+                    <label for="lastName">Last Name<sup>*</sup></label>
+                </div>
+                <div class="flex-form-control">
+                    <input type="text" name="lastName" id="lastName" class="input-control" placeholder="Last Name" />
+                </div>
+            </div>
+            <div class="flex-form-group">
+                <div class="flex-form-label">
+                    <label for="email">Email<sup>*</sup></label>
+                </div>
+                <div class="flex-form-control">
+                    <input type="email" name="email" id="email" class="input-control" placeholder="Email" />
+                </div>
+            </div>
+            <div class="flex-form-group">
+                <div class="flex-form-label">
+                    <label for="address">Address<sup>*</sup></label>
+                </div>
+                <div class="flex-form-control">
+                    <textarea name="address" class="input-control" id="address" placeholder="Address"></textarea>
+                </div>
+            </div>
+            <noscript>
+                <div class="flex-form-group">
+                    <div class="flex-form-label">
+                        <label for="contactNumber">Contact<sup>*</sup></label>
+                    </div>
+                    <div class="flex-form-control">
+                       <div class="contact-type-holder">
+                            <div class="contact-type-holder">
+                                <select name="contactTypes[]" class="input-control input-control-select">
+                                    @foreach(ContactType conatctType in ViewBag.ContactTypeList)
+                                    {
+                                        <option value="@conatctType.Id">@conatctType.ContactTypeText</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="contact-contact-holder">
+                                <input type="text" id="contactNumber" name="contacts[]" class="input-control" placeholder="Contact"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </noscript>
+            <div class="flex-form-group">
+                <div class="flex-form-label">
+                    <label for="image">Image<sup>*</sup></label>
+                </div>
+                <div class="flex-form-control">
+                    @Html.ImageUploader(new HtmlAttribute { Id = "image", Name = "image", Css = "input-control" })
+                </div>
+            </div>
+            <div class="flex-form-group">
+                <div class="flex-form-label">
+                    <label for="password">Password<sup>*</sup></label>
+                </div>
+                <div class="flex-form-control">
+                    <input type="password" name="password" id="password" class="input-control" placeholder="Password"/>
+                </div>
+            </div>
+            <div class="flex-form-group">
+                <div class="flex-form-label">
+                    <label for="confirmPassword">Confirm Password<sup>*</sup></label>
+                </div>
+                <div class="flex-form-control">
+                    <input type="password" name="confirmPassword" id="confirmPassword" class="input-control" placeholder="Confirm Password"/>
+                </div>
+            </div>
+            <noscript>
+                <div class="flex-form-group">
+                    <ul class="validation-errors">
+                    @if(ViewBag.validationErrors!=null)
+                    {
+                        foreach(string errors in ViewBag.validationErrors)
+                        {
+                           <li>@errors</li>
+                        }
+                    }
+                    </ul>
+                </div>
+            </noscript>
+            <div class="flex-form-group">
+                <input type="submit" name="register" value="Register" class="register-button" id="register"/>
+            </div>
+        </form>
+    </div>
+</div>
+@Scripts.Render("~/Bundles/RegisterScriptBundle")
+ 

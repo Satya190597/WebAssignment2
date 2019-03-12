@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    @Styles.Render("~/Bundles/LayoutStyleBundle")
+</head>
+<body>
+    <header>
+        <div class="heading">
+            <h2>ASP.NET MVC Assignment One</h2>
+        </div>
+        <div class="menu">
+             <ul>
+                 @if (ViewBag.CurrentUser != null)
+                 {
+                     string text = ViewBag.CurrentUser + "";
+                     <li>@Html.ActionLink(text, "", "User")</li>
+                     <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
+                 }
+                 else
+                 {
+                     foreach (KeyValuePair<string, string> link in ViewBag.Links)
+                     {
+                         string[] a = link.Value.Split('/');
+                         <li>@Html.ActionLink(link.Key, a[1], a[0])</li>
+                     }
+                 }
+             </ul>
+        </div>
+    </header>
+    <div class="container">
+        @RenderBody()
+    </div>
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Satya Prakash Nandy MVC Assignment One</p>
+    </footer>
+</body>
+</html>

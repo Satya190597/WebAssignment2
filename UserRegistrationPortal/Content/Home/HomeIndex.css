@@ -1,0 +1,71 @@
+﻿.wrapper
+{
+    display: flex;
+}
+.register-wrapper
+{
+    flex: 1;
+}
+.login-wrapper
+{
+    flex: 1;
+}
+.link-box
+{
+    display: block;
+    margin: 0px auto;
+    width: 50%;
+    margin-top: 5%;
+    /* border: 2px solid black; */
+    text-align: center;
+    padding: 2%;
+    border-radius: 5px;
+}
+.custom-link
+{
+   text-decoration: none;
+   color: white;
+   font-weight: bolder;
+}
+.custom-link:hover
+{
+   text-decoration: none;
+   color: white;
+   font-weight: bolder;
+}
+.custom-link:active
+{
+   text-decoration: none;
+   color: white;
+   font-weight: bolder;
+}
+.custom-link:visited
+{
+   text-decoration: none;
+   color: white;
+   font-weight: bolder;
+}
+.login-link
+{
+    background-color: #2471A3;
+}
+.login-link:hover
+{
+    background-color: #2E86C1;
+}
+.register-link
+{
+    background-color: #2471A3;
+}
+.register-link:hover
+{
+    background-color: #2E86C1;
+}
+@media screen and (max-width: 600px)
+{
+    .wrapper
+    {
+        flex-direction: column;
+        font-size: small;
+    }
+}

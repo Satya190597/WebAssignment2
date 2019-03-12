@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Index";
+    IDictionary<string, string> links = new Dictionary<string, string>();
+    links.Add("Home", "Home/");
+    links.Add("Login", "Account/Login");
+    links.Add("Register", "Account/Register");
+    ViewBag.Links = links;
+}
+@Styles.Render("~/Bundles/HomeStyleBundle")
+<div class="wrapper">
+    <div class="register-wrapper">
+        <div class="link-box register-link">
+            @Html.ActionLink("Click Here To Register", "Register", "Account", null, new { @class = "custom-link" })
+        </div>
+    </div>
+    <div class="login-wrapper">
+        <div class="link-box login-link">
+            @Html.ActionLink("Click Here To Login", "Login", "Account", null, new { @class = "custom-link" })
+        </div>
+    </div>
+</div>
+

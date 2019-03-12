@@ -1,0 +1,88 @@
+﻿@model UserRegistrationPortal.Models.UserViewModels
+@using UserRegistrationPortal.CustomHelpers
+@using UserRegistrationPortal.Models
+@{
+    ViewBag.Title = "Index";
+    IDictionary<string, string> links = new Dictionary<string, string>();
+    links.Add("Home", "Home/");
+    links.Add("Logout", "Account/Logout");
+    ViewBag.Links = links;
+}
+@Styles.Render("~/Bundles/UserStyleBundle")
+@Styles.Render("~/Bundles/TestStyleBundle");
+<div class="wrapper">
+    <div class="user-details">
+        <div class="item-group">
+            <div class="setting-icon-holder">
+                <strong class="setting-icon" id="settings">Setting</strong>
+            </div>
+            <div class="user-profile-image-holder">
+                @Html.ImageRenderer(new HtmlAttribute { Width = "100", Height = "100", Src = Url.Content(Model.Image) , Css = "user-profile-image" })
+            </div>
+        </div>
+        <div class="item-group">
+            <div class="item-label">First Name</div>
+            <div class="item-text">
+                @Model.FirstName
+            </div>
+        </div>
+        <div class="item-group">
+            <div class="item-label">Last Name</div>
+            <div class="item-text">
+                @Model.LastName
+            </div>
+        </div>
+        <div class="item-group">
+            <div class="item-label">Email</div>
+            <div class="item-text">
+                @Model.Email
+            </div>
+        </div>
+        <div class="item-group">
+            <div class="item-label">Address</div>
+            <div class="item-text">
+                @Model.Address
+            </div>
+        </div>
+        <div class="item-group">
+            <div class="item-label">Contact</div>
+            <div class="item-text">
+                @foreach (Contact contact in Model.Contact)
+                {
+                    <div class="contact-list-item">
+                        <div class="contact-type">
+                            <strong>@contact.ContactType.ContactTypeText</strong>
+                        </div>
+                        <div class="contact-number">
+                            @contact.ContactNumber
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Model Pop Up -->
+<div class="model" id="updateModel">
+    <div class="model-container">
+        <div class="model-box">
+            <div class="header">
+                <h1>Update Details</h1>
+                <button id="closeModel">Close</button>
+            </div>
+            <div class="body">
+                <form id="userUpdateForm">
+                    <label>First Name</label>
+                    <input type="text" name="firstName" value="@Model.FirstName" id="firstName"/>
+                    <label>Last Name</label>
+                    <input type="text" name="lastName" value="@Model.LastName" id="lastName"/>
+                    <label>Address</label>
+                    <textarea name="address" id="address">@Model.Address</textarea>
+                    <input type="button" name="update" id="update" value="Update" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Model Pop Up End-->
+@Scripts.Render("~/Bundles/TestScript");

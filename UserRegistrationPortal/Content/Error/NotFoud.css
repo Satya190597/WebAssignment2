@@ -1,0 +1,46 @@
+﻿body 
+{
+    font-family: Arial;
+}
+.error-message-box
+{
+    display: flex;
+    justify-content: center;
+}
+.error-message
+{
+    width: 40%;
+    text-align: center;
+    background-color: #F7DC6F;
+    border-radius: 5px;
+    color: #A93226;
+    box-shadow: 2px 2px 2px #E67E22;
+    padding: 3%;
+}
+.error-message a
+{
+    text-decoration: none;
+    font-weight: bolder;
+    color: #5D6D7E;
+}
+.error-message a:hover
+{
+    text-decoration: none;
+    color: #D35400;
+}
+.error-message a:visited
+{
+    text-decoration: none;
+}
+.error-message a:active
+{
+    text-decoration: none;
+}
+/* Media Query */
+@media only screen and (max-width:650px)
+{
+    .error-message
+    {
+        width: 90%;
+    }
+}

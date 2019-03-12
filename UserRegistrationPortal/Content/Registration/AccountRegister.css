@@ -1,0 +1,182 @@
+﻿.form-container
+{
+    width: 100%;
+}
+.form-wrapper
+{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    padding: 2%;
+    margin: 0 auto;
+    background-color: #CFD8DC;
+    border-radius: 5px;
+}
+.flex-form-group
+{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    margin-bottom: 2%;
+}
+.flex-form-group .flex-form-label
+{
+    flex: 1;
+}
+
+/* Labels */
+.flex-form-group .flex-form-label label
+{
+    font-weight: bolder;
+    color: #455A64;
+}
+.flex-form-group .flex-form-control
+{
+    flex: 2;
+}
+.flex-form-group h2
+{
+    color: #34495E;
+}
+
+/* Inputs */
+.input-control
+{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 2%;
+    outline: none;
+    border-radius: 5px;
+    border: 2px solid #37474F;
+}
+
+/* Register Button */
+
+.register-button
+{
+    box-sizing: border-box;
+    width: 30%;
+    padding: 2%;
+    font-weight: bolder;
+    border: none;
+    outline: none;
+    background-color: #5D6D7E;
+    color: #FFFFFF;
+    box-shadow: 2px 2px #85929E;
+}
+.register-button:hover
+{
+    box-shadow: none;
+}
+
+/* Remove Contact Button */
+
+.remove-contact-button
+{
+    box-sizing: border-box;
+    width: 30%;
+    padding: 2%;
+    font-weight: bolder;
+    border: none;
+    outline: none;
+    background-color: #C0392B;
+    color: #FFFFFF;
+    box-shadow: 2px 2px #F1948A;
+}
+.remove-contact-button:hover
+{
+    box-shadow: none;
+}
+
+/* Add Contact Button */
+
+.add-contact-button
+{
+    box-sizing: border-box;
+    width: 30%;
+    padding: 2%;
+    font-weight: bolder;
+    border: none;
+    outline: none;
+    background-color: #2E86C1;
+    color: #FFFFFF;
+    box-shadow: 2px 2px #5DADE2;
+    float: right;
+}
+.add-contact-button:hover
+{
+    box-shadow: none;
+}
+
+/* Select Contact Type */
+
+.input-control-select
+{
+    text-transform: capitalize;
+    width: 60%;
+}
+.contact-holder
+{
+    display: flex;
+    flex-direction: column;
+}
+.contact-type-holder
+{
+    flex: 1;
+    margin-bottom: 2%;
+}
+.contact-contact-holder
+{
+    flex: 1;
+    margin-bottom: 2%;
+}
+.contact-error-status
+{
+    flex: 1;
+    margin-bottom: 2%;
+}
+.contact-contact-holder .input-control
+{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 2%;
+    outline: none;
+    border-radius: 5px;
+    border: 2px solid #37474F;
+}
+.contact-remove-button
+{
+    flex: 1;
+    margin-bottom: 2%;
+}
+
+/* Error Message */
+
+#registrationForm .error
+{
+    font-weight: bolder;
+    color: #CB4335;
+}
+.validation-errors li
+{
+    color: #C0392B;
+    font-weight: bold;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width:750px)
+{
+    .form-wrapper
+    {
+        width: 60%;
+    }
+}
+@media only screen and (max-width:650px)
+{
+    .form-wrapper
+    {
+        width: 90%;
+    }
+}

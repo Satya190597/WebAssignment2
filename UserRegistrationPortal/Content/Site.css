@@ -1,0 +1,81 @@
+﻿body
+{
+    margin: 0;
+    font-family: Arial;
+    padding: 0;
+}
+header
+{
+    background-color: #34495E;
+    color: white;
+    padding: 1%;
+    margin: 0 0 5% 0;
+    display: flex;
+    flex-direction: column;
+}
+header .heading h2
+{
+    margin: 0 0 0 0;
+}
+.heading
+{
+    flex: 1;
+}
+.menu
+{
+    flex: 1;
+    text-align: right;
+}
+.menu ul li
+{
+    text-decoration: none;
+    display: inline;
+    margin-left: 2%;
+}
+footer
+{
+    position: relative;
+    font-weight: bolder;
+    text-align: center;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    color: #99A3A4;
+    bottom: 0;
+}
+a
+{
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;
+}
+a:hover
+{
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;
+}
+a:visited
+{
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;
+}
+a:active
+{
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;
+}
+a[href="/Account/Logout"]
+{
+    color: #E74C3C;
+}
+/* Media Query */
+@media only screen and (max-width:500px)
+{
+    .menu ul li
+    {
+        display: block;
+        margin-right: 3%;
+    }
+}
