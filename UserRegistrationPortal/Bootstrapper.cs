@@ -3,6 +3,7 @@ using Microsoft.Practices.Unity;
 using Unity.Mvc4;
 using UserRegistrationPortal.Services;
 using UserRegistrationPortal.Controllers;
+using UserRegistrationPortal.Filters;
 
 namespace UserRegistrationPortal
 {
@@ -34,6 +35,8 @@ namespace UserRegistrationPortal
       container.RegisterType<IController, UserController>("UserServices");
 
       container.RegisterType<IController, AccountController>("AccountServices");
+
+            container.RegisterType<IController, AdminController>("AdminService");
 
       RegisterTypes(container);
 

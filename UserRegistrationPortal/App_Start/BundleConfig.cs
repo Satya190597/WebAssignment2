@@ -41,6 +41,11 @@ namespace UserRegistrationPortal.App_Start
             _TestStyleBundle.Include("~/Content/_TestStyle/_TestUpdateStyle.css");
             bundles.Add(_TestStyleBundle);
 
+            // + Admin Style Bundle +
+            StyleBundle AdminStyleBundle = new StyleBundle("~/Bundle/AdminStyleBundle");
+            AdminStyleBundle.Include("~/Content/AllRecords/AccountAllRecords.css");
+            bundles.Add(AdminStyleBundle);
+
             // + Script Bundles +
 
             ScriptBundle RegisterScriptBundle = new ScriptBundle("~/Bundles/RegisterScriptBundle");
@@ -64,6 +69,14 @@ namespace UserRegistrationPortal.App_Start
             _TestScriptBundle.Include("~/scripts/UserControllerScripts/EventRegister.js");
             _TestScriptBundle.Include("~/scripts/UserControllerScripts/Main.js");
             bundles.Add(_TestScriptBundle);
+
+            ScriptBundle AllRecordsBundle = new ScriptBundle("~/Bundles/AllRecords");
+            AllRecordsBundle.Include("~/scripts/jquery-3.3.1.min.js",
+                "~/scripts/AjaxCalls/UserRegistrationPortalAjaxCall.js",
+                "~/scripts/AllRecords/Actions.js", 
+                "~/scripts/AllRecords/EventRegister.js", 
+                "~/scripts/AllRecords/Main.js");
+            bundles.Add(AllRecordsBundle);
 
             BundleTable.EnableOptimizations = true;
         }

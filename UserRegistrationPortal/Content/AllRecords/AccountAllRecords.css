@@ -1,0 +1,73 @@
+﻿body 
+{
+    background-color: aliceblue;
+}
+.model-view
+{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    margin: 0;
+    box-sizing: border-box;
+    object-fit: contain;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.model-box
+{
+    display: flex;
+    /* background-color: beige; */
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.user-details-box
+{
+    flex: 0 0 40%;
+    background-color: antiquewhite;
+}
+/* Edit Model */
+.model-edit
+{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    margin: 0;
+    box-sizing: border-box;
+    object-fit: contain;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.model-box
+{
+    display: flex;
+    /* background-color: beige; */
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.user-details-box
+{
+    flex: 0 0 40%;
+    background-color: antiquewhite;
+}
+/* Media Queries */
+@media only screen and (max-width: 500px)
+{
+    .user-details-box
+    {
+        flex: 0 0 90%;
+    }
+    table
+    {
+        font-size: 10px;
+    }
+}

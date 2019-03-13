@@ -105,8 +105,8 @@
       <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Net.Http" />
@@ -172,6 +172,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\AllRecords\AccountAllRecords.css" />
     <Content Include="Content\Error\NotFoud.css" />
     <Content Include="Content\Home\HomeIndex.css" />
     <Content Include="Content\Login\AccountLogin.css" />
@@ -187,6 +188,9 @@
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="scripts\AjaxCalls\UserRegistrationPortalAjaxCall.js" />
     <None Include="scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="scripts\AllRecords\Actions.js" />
+    <Content Include="scripts\AllRecords\EventRegister.js" />
+    <Content Include="scripts\AllRecords\Main.js" />
     <Content Include="scripts\CustomHelperMethods\CustomHelperMethods.js" />
     <Content Include="scripts\jquery-3.3.1.js" />
     <Content Include="scripts\jquery-3.3.1.min.js" />
@@ -215,6 +219,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CheckEmailController.cs" />
     <Compile Include="Controllers\ContactTypeController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -224,13 +229,23 @@
     <Compile Include="CustomAttributes\UniqueEmailAttribute.cs" />
     <Compile Include="CustomAttributes\ValidContactTypeAttribute.cs" />
     <Compile Include="CustomAttributes\ValidImageAttribute.cs" />
+    <Compile Include="Filters\AuthorizeFilter.cs" />
     <Compile Include="Filters\RequestTypeAjaxFilter.cs" />
     <Compile Include="Filters\UserLoginFilter.cs" />
     <Compile Include="Migrations\201903010626519_InitialMigration.cs" />
     <Compile Include="Migrations\201903010626519_InitialMigration.Designer.cs">
       <DependentUpon>201903010626519_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903130559457_UserRolesAdded.cs" />
+    <Compile Include="Migrations\201903130559457_UserRolesAdded.Designer.cs">
+      <DependentUpon>201903130559457_UserRolesAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903130623133_MakeRoleColumnRequired.cs" />
+    <Compile Include="Migrations\201903130623133_MakeRoleColumnRequired.Designer.cs">
+      <DependentUpon>201903130623133_MakeRoleColumnRequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Role.cs" />
     <Compile Include="Models\UserUpdateViewModel.cs" />
     <Compile Include="Services\UserServiceImplementation.cs" />
     <Compile Include="Services\AuthenticationServiceImplementation.cs" />
@@ -276,6 +291,7 @@
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Error\UnhandleError.cshtml" />
     <Content Include="Views\TestView\UpdateUser.cshtml" />
+    <Content Include="Views\Admin\AllRecords.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -290,6 +306,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201903010626519_InitialMigration.resx">
       <DependentUpon>201903010626519_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903130559457_UserRolesAdded.resx">
+      <DependentUpon>201903130559457_UserRolesAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903130623133_MakeRoleColumnRequired.resx">
+      <DependentUpon>201903130623133_MakeRoleColumnRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -47,6 +47,14 @@ namespace UserRegistrationPortal.Models
         [Required]
         [Column("ImageUrl")]
         public string Image { get; set; }
+
+        // + Testing (User Role Comlumn) +
+
+        public int RoleId { get; set; }
+
+        [ForeignKey("RoleId")]
+        [Required]
+        public Role UserRole { get; set; }
         public ICollection<Contact> Contacts { get; set; }
     }
 }

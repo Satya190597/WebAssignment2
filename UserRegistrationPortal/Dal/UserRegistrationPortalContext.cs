@@ -12,5 +12,6 @@ namespace UserRegistrationPortal.Dal
         public DbSet<User> User { get; set; }
         public DbSet<Contact> Contact { get; set; }
         public DbSet<ContactType> ContactType { get; set; }
+        public DbSet<Role> Role { get; set; }
     }
 }

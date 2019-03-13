@@ -33,13 +33,13 @@ namespace UserRegistrationPortal.Controllers
         {
             return PartialView("~/Views/TestView/UpdateUser.cshtml");
         }
-        [HttpPut]
-        [RequestTypeAjaxFilter]
-        public JsonResult Update(UserUpdateViewModels userDetails)
-        {
-            // -- Current User Is Working Properly --
-            var user = currentUser.GetCurrentUser(Request);
-            throw new Exception();
-        }
+        //[HttpPut]
+        //[RequestTypeAjaxFilter]
+        //public JsonResult Update(UserUpdateViewModels userDetails)
+        //{
+        //    // -- Current User Is Working Properly --
+        //    var user = currentUser.GetCurrentUser(Request);
+        //    //throw new Exception();
+        //}
     }
 }

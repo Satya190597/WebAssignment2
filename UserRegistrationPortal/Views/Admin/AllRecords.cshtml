@@ -1,0 +1,131 @@
+﻿@using UserRegistrationPortal.Models;
+@{
+    ViewBag.Title = "AllRecords";
+}
+@{
+    ViewBag.Title = "Index";
+    IDictionary<string, string> links = new Dictionary<string, string>();
+    links.Add("Home", "Home/");
+    links.Add("Logout", "Account/Logout");
+    ViewBag.Links = links;
+}
+@Styles.Render("~/Bundle/AdminStyleBundle")
+@Scripts.Render("~/Bundles/AllRecords")
+<h2>AllRecords</h2>
+<div>
+    <table>
+            <thead>
+                <tr>
+                    <td>Sl.No</td>
+                    <td>First Name</td>
+                    <td>Last Name</td>
+                    <td>Email</td>
+                    <td>Edit</td>
+                    <td>View</td>
+                    <td>Delete</td>
+                </tr>
+            </thead>
+        <tbody>
+            @{
+                int index = 1;
+            }
+            @foreach (UserViewModels user in ViewBag.AllUsers)
+            {
+                <tr>
+                    <td>@index</td>
+                    <td>@user.FirstName</td>
+                    <td>@user.LastName</td>
+                    <td>@user.Email</td>
+                    <td><button data-userId="@user.UserId" class="editButton">Edit</button></td>
+                    <td><button data-userId="@user.UserId" class="viewButton">View</button></td>
+                    <td><button data-userId="@user.UserId">Delete</button></td>
+                </tr>
+                index++;
+            }
+        </tbody>
+    </table>
+    <div class="model-view">
+        <div class="model-box">
+            <div class="user-details-box">
+                <div>
+                    <div>
+                        <img src="" id="userImageView" width="100" height="100"/>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label>First Name</label>
+                    </div>
+                    <div>
+                        <strong id="firstNameView"></strong>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label>Last Name</label>
+                    </div>
+                    <div>
+                        <strong id="lastNameView"></strong>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label>Email</label>
+                    </div>
+                    <div>
+                        <strong id="emailView"></strong>
+                    </div>
+                </div>
+                <div>
+                    <div>Address</div>
+                    <div>
+                        <strong id="addressView"></strong>
+                    </div>
+                </div>
+                <div>
+                    <div>Contact</div>
+                    <div>
+                        <ul id="contactList">
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="model-edit">
+        <div class="model-box">
+            <div class="user-details-box">
+                <div>
+                    <div>
+                        <label>First Name</label>
+                    </div>
+                    <div>
+                        <input type="text" id="firstNameEdit" />
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label>Last Name</label>
+                    </div>
+                    <div>
+                        <input type="text" id="lastNameEdit" />
+                    </div>
+                </div>
+                <div>
+                    <div>Address</div>
+                    <div>
+                        <textarea id="addressEdit"></textarea>
+                    </div>
+                </div>
+                <div>
+                    <button>Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="model-delete">
+
+    </div>
+</div>
+
