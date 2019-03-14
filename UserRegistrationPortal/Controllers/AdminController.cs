@@ -39,10 +39,39 @@ namespace UserRegistrationPortal.Controllers
             return View();
         }
         [HttpGet]
+        [RequestTypeAjaxFilter]
+        [Authorize]
+        [AuthorizeFilter(role: "admin")]
         public JsonResult GetUser(int id)
         {
             var result = userService.GetUserDetails(context.User.Find(id));
             return Json(JsonCreater(result), "application/json",JsonRequestBehavior.AllowGet);
+        }
+        //Admin Update User Details
+        [HttpPut]
+        [RequestTypeAjaxFilter]
+        [Authorize]
+        [AuthorizeFilter(role: "admin")]
+        public JsonResult UpdateUser(int id,UserUpdateViewModels userDetails)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = context.User.Include("UserRole").Where(u => u.Id == id).FirstOrDefault();
+                return Json(userService.UpdateUserDetaisl(userDetails, user), JsonRequestBehavior.AllowGet);
+            }
+           else
+           {
+                return Json(false, JsonRequestBehavior.AllowGet);
+           }
+        }
+        [HttpDelete]
+        [RequestTypeAjaxFilter]
+        [Authorize]
+        [AuthorizeFilter(role: "admin")]
+        public JsonResult DeleteUser(int id)
+        {
+            
+            return Json(userService.DeleteUser(id));
         }
         private Dictionary<string,object> JsonCreater(UserViewModels user)
         {

@@ -4,12 +4,16 @@
 @{
     ViewBag.Title = "Index";
     IDictionary<string, string> links = new Dictionary<string, string>();
+    if (Model.UserRole.RoleType.Equals("admin"))
+    {
+        links.Add("Dashboard", "Admin/AllRecords");
+    }
     links.Add("Home", "Home/");
     links.Add("Logout", "Account/Logout");
     ViewBag.Links = links;
 }
 @Styles.Render("~/Bundles/UserStyleBundle")
-@Styles.Render("~/Bundles/TestStyleBundle");
+@Styles.Render("~/Bundles/TestStyleBundle")
 <div class="wrapper">
     <div class="user-details">
         <div class="item-group">
@@ -67,22 +71,48 @@
     <div class="model-container">
         <div class="model-box">
             <div class="header">
-                <h1>Update Details</h1>
-                <button id="closeModel">Close</button>
+                <div class="flex-column-heading">
+                    <h1>Update Details</h1>
+                </div>
+                <div class="flex-column-controller">
+                    <button id="closeModel" class="model-close">Close</button>
+                </div>
             </div>
-            <div class="body">
-                <form id="userUpdateForm">
-                    <label>First Name</label>
-                    <input type="text" name="firstName" value="@Model.FirstName" id="firstName"/>
-                    <label>Last Name</label>
-                    <input type="text" name="lastName" value="@Model.LastName" id="lastName"/>
-                    <label>Address</label>
-                    <textarea name="address" id="address">@Model.Address</textarea>
-                    <input type="button" name="update" id="update" value="Update" />
-                </form>
-            </div>
+            <form id="userUpdateForm" class="user-update-form">
+                <div class="body">
+                    <div class="flex-column">
+                        <div class="flex-row">
+                            <label>First Name</label>
+                        </div>
+                        <div class="flex-row">
+                            <input type="text" name="firstName" value="@Model.FirstName" id="firstName" class="update-input-controller" />
+                        </div>
+                    </div>
+                    <div class="flex-column">
+                        <div class="flex-row">
+                            <label>Last Name</label>
+                        </div>
+                        <div class="flex-row">
+                            <input type="text" name="lastName" value="@Model.LastName" id="lastName" class="update-input-controller" />
+                        </div>
+                    </div>
+                    <div class="flex-column">
+                        <div class="flex-row">
+                            <label>Address</label>
+                        </div>
+                        <div class="flex-row">
+                            <textarea name="address" id="address" class="update-input-controller">@Model.Address</textarea>
+                        </div>
+                    </div>
+                    <div class="flex-column">
+                        <div class="flex-row">
+                            <input type="submit" name="update" id="update" value="Update" class="update-button" />
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
 <!-- Model Pop Up End-->
-@Scripts.Render("~/Bundles/TestScript");
+@Scripts.Render("~/Bundles/TestScript")

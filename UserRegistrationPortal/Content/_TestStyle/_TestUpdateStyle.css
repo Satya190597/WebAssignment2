@@ -23,15 +23,88 @@
 }
 .model-box
 {
-    flex: 0 0 40%;
-    width: 40%;
+    flex: 0 0 20%;
+    width: 30%;
     margin-top: 10%;
-    background-color: aquamarine;
+    background-color: #FFFFFF;
     padding: 2%;
+    border-radius: 5px;
+}
+/* Design The Form Header */
+.model-box .header
+{
+    display: flex;
+    align-items: center;
+}
+.model-box .header .flex-column-heading
+{
+    flex: 3;
+    color: #5D6D7E;
+}
+.model-box .header .flex-column-controller
+{
+    flex: 1;
+    text-align: right;
+}
+.model-close
+{
+    background-color: #E74C3C;
+    padding: 5%;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    font-weight: bolder;
+    box-shadow: 2px 2px #FADBD8;
+}
+/* Design The Form */
+.model-box .body
+{
+    background-color: aliceblue;
+    padding: 3%;
+    display: flex;
+    flex-direction: column;
+} 
+.model-box .body .flex-column
+{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+.model-box .body .flex-column .flex-row
+{
+    flex: 1;
 }
 .model-box .header strong
 {
     float: right;
+}
+.update-input-controller
+{
+    width: 90%;
+}
+.update-button
+{
+    background-color: #2E86C1;
+    color: white;
+    border: none;
+    padding: 2%;
+    font-weight: bolder;
+    border-radius: 3px;
+    box-shadow: 2px 2px #A9CCE3;
+}
+.update-button:hover
+{
+    box-shadow: none;
+}
+.update-input-controller
+{
+    padding: 1%;
+    border: 2px solid #5D6D7E;
+    border-radius: 5px;
+    outline: none;
 }
 @media screen and (max-width: 500px)
 {

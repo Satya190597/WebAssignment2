@@ -13,5 +13,9 @@ namespace UserRegistrationPortal.Services
         /// Get User Details
         /// </summary>
         UserViewModels GetUserDetails(User user);
+
+        bool UpdateUserDetaisl(UserUpdateViewModels userUpdateDetails, User currentUser);
+
+        bool DeleteUser(int id);
     }
 }

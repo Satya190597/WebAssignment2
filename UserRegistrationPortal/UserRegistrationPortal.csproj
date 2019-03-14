@@ -173,6 +173,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\AllRecords\AccountAllRecords.css" />
+    <Content Include="Content\AllRecords\EditModelPopUp.css" />
+    <Content Include="Content\AllRecords\ViewModelPopUp.css" />
     <Content Include="Content\Error\NotFoud.css" />
     <Content Include="Content\Home\HomeIndex.css" />
     <Content Include="Content\Login\AccountLogin.css" />
@@ -189,6 +191,7 @@
     <Content Include="scripts\AjaxCalls\UserRegistrationPortalAjaxCall.js" />
     <None Include="scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="scripts\AllRecords\Actions.js" />
+    <Content Include="scripts\AllRecords\CustomValidation.js" />
     <Content Include="scripts\AllRecords\EventRegister.js" />
     <Content Include="scripts\AllRecords\Main.js" />
     <Content Include="scripts\CustomHelperMethods\CustomHelperMethods.js" />
@@ -205,6 +208,7 @@
     <Content Include="scripts\RegistrationScripts\EventRegister.js" />
     <Content Include="scripts\RegistrationScripts\Main.js" />
     <Content Include="scripts\RegistrationScripts\Validation.js" />
+    <Content Include="scripts\UserControllerScripts\CustomValidation.js" />
     <Content Include="scripts\UserControllerScripts\EventRegister.js" />
     <Content Include="scripts\UserControllerScripts\FormAction.js" />
     <Content Include="scripts\UserControllerScripts\Main.js" />

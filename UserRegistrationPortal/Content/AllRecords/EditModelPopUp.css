@@ -1,0 +1,74 @@
+﻿/* Buttons Style */
+.model-close
+{
+    background-color: #E74C3C;
+    padding: 5%;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    font-weight: bolder;
+    box-shadow: 2px 2px #FADBD8;
+}
+.update-input-controller
+{
+    padding: 1%;
+    border: 2px solid #5D6D7E;
+    border-radius: 5px;
+    outline: none;
+    width: 90%;
+}
+.update-button
+{
+    background-color: #2E86C1;
+    color: white;
+    border: none;
+    padding: 2%;
+    font-weight: bolder;
+    border-radius: 3px;
+    box-shadow: 2px 2px #A9CCE3;
+    width: 50%;
+}
+/* FORM STYLE */
+.user-details-box .body
+{
+    background-color: aliceblue;
+    padding: 3%;
+    display: flex;
+    flex-direction: column;
+} 
+.model-box .body .flex-column
+{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+.user-details-box .body .flex-column .flex-row
+{
+    flex: 1;
+}
+/* Header Style */
+.user-details-box .header
+{
+    display: flex;
+    align-items: center;
+}
+.user-details-box .header .flex-column-heading
+{
+    flex: 3;
+    color: #5D6D7E;
+}
+.user-details-box .header .flex-column-controller
+{
+    flex: 1;
+    text-align: right;
+}
+@media only screen and (max-width:500px)  
+{
+    .user-details-box
+    {
+        width: 95%;
+    }
+}

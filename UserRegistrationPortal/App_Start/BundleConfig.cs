@@ -43,7 +43,7 @@ namespace UserRegistrationPortal.App_Start
 
             // + Admin Style Bundle +
             StyleBundle AdminStyleBundle = new StyleBundle("~/Bundle/AdminStyleBundle");
-            AdminStyleBundle.Include("~/Content/AllRecords/AccountAllRecords.css");
+            AdminStyleBundle.Include("~/Content/AllRecords/AccountAllRecords.css", "~/Content/AllRecords/ViewModelPopUp.css" , "~/Content/AllRecords/EditModelPopUp.css");
             bundles.Add(AdminStyleBundle);
 
             // + Script Bundles +
@@ -62,7 +62,7 @@ namespace UserRegistrationPortal.App_Start
             bundles.Add(RegisterScriptBundle);
 
             ScriptBundle _TestScriptBundle = new ScriptBundle("~/Bundles/TestScript");
-            _TestScriptBundle.Include("~/scripts/jquery-3.3.1.min.js");
+            _TestScriptBundle.Include("~/scripts/jquery-3.3.1.min.js", "~/scripts/jquery.validate.min.js", "~/scripts/RegistrationScripts/Validation.js", "~/scripts/UserControllerScripts/CustomValidation.js");
             _TestScriptBundle.Include("~/scripts/AjaxCalls/UserRegistrationPortalAjaxCall.js");
             _TestScriptBundle.Include("~/scripts/UserControllerScripts/FormAction.js");
             _TestScriptBundle.Include("~/scripts/UserControllerScripts/ModelAction.js");
@@ -72,7 +72,12 @@ namespace UserRegistrationPortal.App_Start
 
             ScriptBundle AllRecordsBundle = new ScriptBundle("~/Bundles/AllRecords");
             AllRecordsBundle.Include("~/scripts/jquery-3.3.1.min.js",
+                "~/scripts/jquery.validate.min.js",
+                "~/scripts/RegistrationScripts/Validation.js",
+                "~/scripts/CustomHelperMethods/CustomHelperMethods.js",
+                "~/scripts/AllRecords/CustomValidation.js",
                 "~/scripts/AjaxCalls/UserRegistrationPortalAjaxCall.js",
+                "~/scripts/RegistrationScripts/Validation.js",
                 "~/scripts/AllRecords/Actions.js", 
                 "~/scripts/AllRecords/EventRegister.js", 
                 "~/scripts/AllRecords/Main.js");

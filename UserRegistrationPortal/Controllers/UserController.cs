@@ -27,19 +27,19 @@ namespace UserRegistrationPortal.Controllers
         {
             return View(userService.GetUserDetails(currentUser.GetCurrentUser(Request)));
         }
-        [ChildActionOnly]
-        [Authorize]
-        public ActionResult Update()
+        [HttpPut]
+        [RequestTypeAjaxFilter]
+        public JsonResult Update(UserUpdateViewModels userDetails)
         {
-            return PartialView("~/Views/TestView/UpdateUser.cshtml");
+            if (ModelState.IsValid)
+            {
+                var user = currentUser.GetCurrentUser(Request);
+                return Json(userService.UpdateUserDetaisl(userDetails, user), JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(false, JsonRequestBehavior.AllowGet);
+            }
         }
-        //[HttpPut]
-        //[RequestTypeAjaxFilter]
-        //public JsonResult Update(UserUpdateViewModels userDetails)
-        //{
-        //    // -- Current User Is Working Properly --
-        //    var user = currentUser.GetCurrentUser(Request);
-        //    //throw new Exception();
-        //}
     }
 }

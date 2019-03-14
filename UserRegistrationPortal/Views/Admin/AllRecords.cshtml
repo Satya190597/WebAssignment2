@@ -6,14 +6,17 @@
     ViewBag.Title = "Index";
     IDictionary<string, string> links = new Dictionary<string, string>();
     links.Add("Home", "Home/");
+    links.Add("Info", "User/Index");
     links.Add("Logout", "Account/Logout");
     ViewBag.Links = links;
 }
 @Styles.Render("~/Bundle/AdminStyleBundle")
 @Scripts.Render("~/Bundles/AllRecords")
-<h2>AllRecords</h2>
-<div>
-    <table>
+<div class="data-title">
+    <h2>All User Records</h2>
+</div>
+<div class="data-view">
+    <table class="data-view-table">
             <thead>
                 <tr>
                     <td>Sl.No</td>
@@ -36,58 +39,59 @@
                     <td>@user.FirstName</td>
                     <td>@user.LastName</td>
                     <td>@user.Email</td>
-                    <td><button data-userId="@user.UserId" class="editButton">Edit</button></td>
-                    <td><button data-userId="@user.UserId" class="viewButton">View</button></td>
-                    <td><button data-userId="@user.UserId">Delete</button></td>
+                    <td><strong data-userId="@user.UserId" class="editButton">Edit</strong></td>
+                    <td><strong data-userId="@user.UserId" class="viewButton">View</strong></td>
+                    <td><strong data-userId="@user.UserId" class="deleteButton">Delete</strong></td>
                 </tr>
                 index++;
             }
         </tbody>
     </table>
-    <div class="model-view">
+    <div class="model-view" id="modelView">
         <div class="model-box">
             <div class="user-details-box">
-                <div>
-                    <div>
-                        <img src="" id="userImageView" width="100" height="100"/>
+                <div class="flex-column">
+                    <div class="model-controller">
+                        <strong id="closeViewModelButton">Close</strong>
+                    </div>
+                    <div class="image-holder">
+                        <img src="" id="userImageView" width="100" height="100"/>                      
                     </div>
                 </div>
-                <div>
-                    <div>
+                <div class="flex-column">
+                    <div class="flex-row-label">
                         <label>First Name</label>
                     </div>
-                    <div>
+                    <div class="flex-row-data">
                         <strong id="firstNameView"></strong>
                     </div>
                 </div>
-                <div>
-                    <div>
+                <div class="flex-column">
+                    <div class="flex-row-label">
                         <label>Last Name</label>
                     </div>
-                    <div>
+                    <div class="flex-row-data">
                         <strong id="lastNameView"></strong>
                     </div>
                 </div>
-                <div>
-                    <div>
+                <div class="flex-column">
+                    <div class="flex-row-label">
                         <label>Email</label>
                     </div>
-                    <div>
+                    <div class="flex-row-data">
                         <strong id="emailView"></strong>
                     </div>
                 </div>
-                <div>
-                    <div>Address</div>
-                    <div>
+                <div class="flex-column">
+                    <div class="flex-row-label">Address</div>
+                    <div class="flex-row-data">
                         <strong id="addressView"></strong>
                     </div>
                 </div>
-                <div>
-                    <div>Contact</div>
-                    <div>
-                        <ul id="contactList">
-
-                        </ul>
+                <div class="flex-column">
+                    <div class="flex-row-label">Contacts</div>
+                    <div class="flex-row-data">
+                        <ul id="contactList"></ul>
                     </div>
                 </div>
             </div>
@@ -96,31 +100,43 @@
     <div class="model-edit">
         <div class="model-box">
             <div class="user-details-box">
-                <div>
-                    <div>
-                        <label>First Name</label>
+                <div class="header">
+                    <div class="flex-column-heading">
+                        <h2>Update Details</h2>
                     </div>
-                    <div>
-                        <input type="text" id="firstNameEdit" />
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <label>Last Name</label>
-                    </div>
-                    <div>
-                        <input type="text" id="lastNameEdit" />
+                    <div class="flex-column-controller">
+                        <button id="closeEditModelButton" class="model-close">Close</button>
                     </div>
                 </div>
-                <div>
-                    <div>Address</div>
-                    <div>
-                        <textarea id="addressEdit"></textarea>
+                <form id="userUpdateForm">
+                    <div class="body">
+                        <div class="flex-column">
+                            <div class="flex-row">
+                                <label>First Name</label>
+                            </div>
+                            <div class="flex-row">
+                                <input type="text" id="firstName" name="firstName" class="update-input-controller" />
+                            </div>
+                        </div>
+                        <div class="flex-column">
+                            <div class="flex-row">
+                                <label>Last Name</label>
+                            </div>
+                            <div class="flex-row">
+                                <input type="text" id="lastName" name="lastName" class="update-input-controller" />
+                            </div>
+                        </div>
+                        <div class="flex-column">
+                            <div class="flex-row">Address</div>
+                            <div class="flex-row">
+                                <textarea id="address" name="address" class="update-input-controller"></textarea>
+                            </div>
+                        </div>
+                        <div class="flex-column">
+                            <button id="updateButton" class="update-button">Update</button>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <button>Update</button>
-                </div>
+                </form>
             </div>
         </div>
     </div>

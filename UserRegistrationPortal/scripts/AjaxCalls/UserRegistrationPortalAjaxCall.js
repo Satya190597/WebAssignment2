@@ -17,11 +17,19 @@ var userRegistrationPortalAjaxCall = {
         })
     },
     ajaxUpdateCall: function (url, data) {
-    return $.ajax({
-        url: url,
-        method: "PUT",
-        contentType: "application/json;charset=utf-8",
-        data: data
-    })
-}
+        return $.ajax({
+            url: url,
+            method: "PUT",
+            contentType: "application/json;charset=utf-8",
+            data: data
+        })
+    },
+    ajaxDeleteCall: function (url) {
+        return $.ajax({
+            url: url,
+            method: "DELETE",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json"
+        })
+    }
 }

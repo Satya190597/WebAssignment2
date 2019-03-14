@@ -29,7 +29,7 @@ namespace UserRegistrationPortal.Models
         [MinLength(5)]
         [MaxLength(50)]
         [EmailAddress]
-        [UniqueEmail]
+        /*[UniqueEmail]*/
         public string Email { get; set; }
 
         [Column("Address")]

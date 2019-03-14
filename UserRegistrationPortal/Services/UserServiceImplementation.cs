@@ -2,6 +2,8 @@
 using System.Web.Helpers;
 using UserRegistrationPortal.Models;
 using UserRegistrationPortal.Dal;
+using System.Data.Entity;
+using System;
 
 namespace UserRegistrationPortal.Services
 {
@@ -51,9 +53,29 @@ namespace UserRegistrationPortal.Services
                 Email = user.Email,
                 Address = user.Address,
                 Image = user.Image != null && user.Image != "" ? user.Image : "~/Uploads/Images/default_user_profile.png",
-                Contact = context.Contact.Include("ContactType").Where(c => c.UserId == user.Id).ToList()
+                Contact = context.Contact.Include("ContactType").Where(c => c.UserId == user.Id).ToList(),
+                UserRole = user.UserRole
             };
             return userView;
+        }
+
+        public bool DeleteUser(int id)
+        {
+            User user = context.User.Find(id);
+            if(user!=null)
+            {
+                context.User.Remove(user);
+                context.SaveChanges();
+            }
+           return true;
+        }
+        public bool UpdateUserDetaisl(UserUpdateViewModels userUpdateDetails,User currentUser)
+        {
+            currentUser.FirstName = userUpdateDetails.FirstName;
+            currentUser.LastName = userUpdateDetails.LastName;
+            currentUser.Address = userUpdateDetails.Address;
+            context.Entry(currentUser).State = EntityState.Modified;
+            return context.SaveChanges() >= 1;
         }
     }
 }

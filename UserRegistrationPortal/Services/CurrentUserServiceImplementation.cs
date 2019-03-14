@@ -14,7 +14,7 @@ namespace UserRegistrationPortal.Services
             if (request.IsAuthenticated)
             {
                 string email = FormsAuthentication.Decrypt(request.Cookies[FormsAuthentication.FormsCookieName].Value).Name;
-                return context.User.Where(u => u.Email.Equals(email)).FirstOrDefault();
+                return context.User.Include("UserRole").Where(u => u.Email.Equals(email)).FirstOrDefault();
             }
             else
             {
